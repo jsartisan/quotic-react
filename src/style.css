@@ -1,0 +1,218 @@
+html, body, #app, .react-root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+.overlay {
+  background: rgba(0,0,0, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: rgba(0,0,0, 1);
+  transition: all .5s ease-in-out;
+}
+
+.content.active {
+  background: rgba(0,0,0, .5);
+}
+
+.content *{
+  position: relative;
+  z-index: 1;
+}
+
+.dialogue {
+  flex: 1;
+  color: white;
+  font-size: 28px;
+  width: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  line-height: 46px;
+  text-align: center;
+  opacity: 0;
+  transition: all .3s ease-in-out;
+}
+
+.dialogue.active {
+  opacity: 1;
+}
+
+.header {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header.active {
+  transform: translateY(0);
+}
+
+.header .header-content {
+  height: 40px;
+  margin-top: -40px;
+  opacity: 0;
+  transition: all .25s ease-in-out;
+  position: relative;
+  width: 100%;
+}
+
+.header .tags {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0;
+  margin: 0;
+  height: 40px;
+}
+
+.header.active .header-content {
+  margin-top: 0;
+  opacity: 1;
+}
+
+.header svg.sync {
+  position: absolute;
+  z-index: 2;
+  padding: 20px;
+  top: 0;
+  right: 0;
+  opacity: .3;
+}
+
+.header svg.sync.syncing {
+  -webkit-animation: rotation 1s infinite linear;
+}
+
+.header svg.sync:hover {
+  opacity: 1;
+}
+
+.header svg.sync path {
+  stroke: white;
+  fill: white;
+}
+
+.header .tags li {
+  color: white;
+  list-style: none;
+  padding: 0 20px;
+  font-size: 15px;
+}
+
+.header .tags li.tag.active:before {
+  display: block;
+  content: '';
+  height: 6px;
+  width: 6px;
+  background: #0078ff;
+  border-radius: 100%;
+  position: absolute;
+  left: 50%;
+  margin-left: -3px;
+  margin-top: -10px;
+}
+
+.header .type-list {
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  z-index: 2;
+}
+
+.header .type-list button{
+  background: none;
+  outline: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.header .type-list button.active {
+  background: rgba(255, 255, 255, .2);
+  border-radius: 3px;
+}
+
+.header:hover svg.reveal {
+  opacity: 1;
+  transform: translateY(10px);
+  display: block;
+}
+
+.header svg.reveal{
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  opacity: 0;
+  padding-top: 5px;
+  padding-bottom: 30px;
+  transition: all .2s linear;
+}
+
+.header svg.reveal.active{
+  opacity: 1;
+  transform: translateY(10px);
+  display: block;
+}
+
+.header svg.reveal path{
+  stroke: white;
+  fill: white;
+}
+
+.footer {
+  color: white;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  opacity: 0;
+  transition: all .3s ease-in-out;
+}
+
+.footer.active {
+  opacity: 1;
+}
+
+.footer a {
+  text-decoration: none;
+  color: white;
+  margin-top: 10px;
+  display: block;
+}
+
+@-webkit-keyframes rotation {
+  from {
+      -webkit-transform: rotate(0deg);
+  }
+  to {
+      -webkit-transform: rotate(359deg);
+  }
+}

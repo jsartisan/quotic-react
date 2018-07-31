@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "Quotic",
+  "permissions": [
+    "storage"
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "browser_action": {
+    "default_icon": "icon16.png"
+  },
+  "content_security_policy": "script-src 'self' https://cdn.firebase.com https://*.firebaseio.com; object-src 'self'",
+  "description": "Shows movie quotes in new tab.",
+  "version": "1.3",
+  "chrome_url_overrides" : {
+    "newtab": "index.html"
+  }
+}
